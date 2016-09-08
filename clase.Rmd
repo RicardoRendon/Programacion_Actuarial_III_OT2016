@@ -102,7 +102,141 @@ m
 getwd()
 setwd("~/GitHub/Programacion_Actuarial_III_OT2016")
 data <- read.csv("Datos_S&P.csv")
-data <- read.table("Datos_S&P.csv",T, ",")
+data <- read.table("Datos_S&P.csv",T, ",",nrows = 100)
+args(read.table)
+clases <- sapply(data,class)
+data <- read.table("Datos_S&P.csv",T, ",",colClasses = clases)
+
 data
 
+#Uso de dget y dput
+y <- data.frame(a=1, b="a")
+dput(y)
+dput(y, file="y.R")
+nueva.y <-dget("y.R")
+y
+nueva.y
+
+x <- "Programación Actuarial III"
+y <- data.frame(a=1,b="a")
+dump(c("x","y"), file= "data.R")
+rm(x,y)
+source("data.R")
+x
+head(airquality)
+dput(airquality,file = "airquiality.R")
+
+con <- url("http://www.fcfm.buap.mx/","r")
+x <- readLines(con,7)
+x
+
+#Creamos un vector
+x <- c("a","b","c","c","d","e")
+#Veamos el vector
+x
+#Extraemos elementos con []
+x[1]
+x[2]
+#También podemos extraer una secuencia de elementos
+x[1:4]
+#Es posible extraer los elementos que cuplen una restricción
+x[x<"b"]
+#De manera equivalente se puede obtener un vector lógico
+u <- x== "c"
+u
+x[u]
+
+#Creamos una lista
+x <- list(foo = 1:4, bar=0.6)
+#Extraemos el primer elemento de la lista
+#ese elemento es una lista que contiene una secuencia
+x[1]
+
+#Extraemos nuevamente el primer elemento de la lista
+#ahora el elemento es la secuencia en si
+x[[1]]
+#Extraemos un elemento por nombre
+x$bar
+x[["bar"]]
+x["bar"]
+
+
+x$foo [2]
+
+#Creamos una lista de 3 elementos
+x <- list(foo= 1:4, bar=0.6, baz ="Hola")
+# Extraemos el primer y tercer elemento de la lista
+x[c(1,3)]
+#toma el primer y tercer elemento de la lista
+x[[c(1,3)]]
+#toma ell tercer elemento del primer objeto(argumento)
+
+x <- list(foo= 1:4, bar=0.6, baz ="Hola")
+name <- "foo"
+x$name
+x$foo
+
+#Se pueden extraer elementos de los elementos extraidos
+x <- list(a = list(10,12,14), b = list(3.14,2.81))
+x[[c(1,3)]]
+x[[1]][[3]]
+x[[c(2,1)]]
+
+#subconjunto de una matriz
+x <- matrix(1:6, 2,3)
+x
+#extraer un dato
+x[1,2]
+x[2,1]
+x[1,]   #extraer fila
+x[,2]  #extraer columna
+
+x <- matrix(1:6, 2,3)
+x
+#El resultado de un vector
+x[1,2]
+
+#Con drop=false, se mantiene la dimension y el resultado
+# será una matriz
+
+x[1,2,drop= FALSE]
+
+
+x <- matrix(1:6, 2,3)
+#si dejamos solamente el espacio, el resultado será un vector 
+x[1,]
+#si usamos drop=false, el resultado será una matriz
+x[1,,drop=FALSE]
+
+
+#R puede encontrar el nombre de algunos objetos de manera parcial
+x <- list(aardvark = 1:5)
+x$a
+x[["a"]]
+x[["a",exact=FALSE]]
+
+#valores faltantes
+airquality[1:6,] #extrae las primeras 6 filas y columnas
+completos <- complete.cases(airquality) 
+completos #filas con datos faltantes
+
+airquality[completos,] #extrae filas completas
+airquality[completos,][1:6,]#extrae las primeras 6 filas completas
+
+airquality[1:6,][completos,]
+
+#Operaciones vectorizadas
+x <- 1:4; y <- 6:9 #escribir dos operaciones separándolas con ;
+x + y
+x>2
+x>=2
+y==8
+x * y
+x/y
+
+
+x <- matrix(1:4,2,2); y <- matrix(rep(10,4),2,2)
+x*y
+x/y
+x%*%y #multiplicación de matrices
 
