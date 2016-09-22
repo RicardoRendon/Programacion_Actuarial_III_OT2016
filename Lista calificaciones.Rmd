@@ -8,20 +8,20 @@ output: html_document
 #Lista de materias y calificaciones
 
 ##Primer semestre
-*Programación Actuarial I 8
-*Introducción a la profesión actuarial 8
-*Conceptos de Cálculo 10
-*Matemáticas básicas 9
-*Problemas de matemáticas 9
-*DHPC 9
+###Programación Actuarial I 8
+###Introducción a la profesión actuarial 8
+###Conceptos de Cálculo 10
+###Matemáticas básicas 9
+###Problemas de matemáticas 9
+###DHPC 9
 
 ##Segundo semestre
-*Programación Actuarial II 9
-*Teoría de ecuaciones 7
-*Teoría del interés I 8
-*Formación Humana y Social 10
-*Cálculo diferencial 7
-*Geometría Analítica 8
+###Programación Actuarial II 9
+###Teoría de ecuaciones 7
+###Teoría del interés I 8
+###Formación Humana y Social 10
+###Cálculo diferencial 7
+###Geometría Analítica 8
 
 
 
