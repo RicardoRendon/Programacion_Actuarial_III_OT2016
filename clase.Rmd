@@ -520,3 +520,10 @@ promediocol <- function(z, quitar.NA = TRUE){
   getwd()
   setwd(paste(getwd(),"/GitHub/Programacion_Actuarial_III_OT16/"))
         
+  
+  
+  
+  completos("specdata",1)
+  completos("specdata",c(2,4,8,10,12))
+  
+  completos("specdata",30:25)
