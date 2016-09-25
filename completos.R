@@ -3,7 +3,7 @@ completos <- function(directorio, id=1:332){
   Nobs<-vector("numeric",1)
   Registro = data.frame("id" = 0, "nobs" = 0)
     a=0
-  for (i in 1:id){
+  for (i in id){
     Nobs <- c(0)
     a=a+1
     if (i <10){
@@ -21,3 +21,6 @@ completos <- function(directorio, id=1:332){
   }
 Registro
 }
+
+
+completos("specdata",1:332)

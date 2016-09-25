@@ -1,24 +1,33 @@
 mediacontaminante <- function(directorio, contaminante, id = 1:332) {
-  if (id<10){
-    id=paste("00",id,sep = "")
+    ni <- 0
+    resultado <- vector(mode="numeric",1)
+    c <- vector(mode="numeric",1)
+    s <- vector(mode="numeric",1)
+    
+    for (i in id){
+   ni = ni+1
+   if (i<10){
+    id=paste("00",i,sep = "")
   } else {
-    if (id<100){
-    id=paste("0",id,sep = "")
-      } else {
-    id=id
-        }
+    if (i<100){
+      id=paste("0",i,sep = "")
+    } else {
+      id=paste(i,sep="")
+    }
   }
-  datos = read.csv(paste(directorio, id , ".csv",sep=""), header = TRUE)
-  if(contaminante == "sulfate"){
-    a = mean(datos$sulfate, trim = 0,na.rm = T)
-    print(a)
+  Archivo <- c("C:/Users/Pablo Rendon/Documents/GitHub/Programacion_Actuarial_III_OT2016")
+  data <- read.csv(paste(Archivo,"/",directorio,"/",id,".csv",sep = ""),header = TRUE)
+  
+  if (contaminante=="nitrate"){
+    columna <- 3 
+  } else if (contaminante=="sulfate") {
+    columna <- 2
   }
-  if(contaminante == "nitrate"){
-    b = mean(datos$nitrate, trim = 0 ,na.rm = T)
-    print(b)
+ c <- sum(complete.cases(data[,columna]))+c
+  s <- sum(data[,columna], na.rm = TRUE)+s
+ }
+  resultado <- (s/c)
+  resultado
 }
-}
-mediacontaminante("C:/Users/Pablo Rendon/Documents /GitHub/Programacion_Actuarial_III_OT16/specdata","sulfate",34)
 
-
-
+mediacontaminante("specdata","nitrate",2:4)
