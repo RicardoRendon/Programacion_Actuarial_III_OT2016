@@ -384,6 +384,8 @@ airquality[completos,] #extrae filas completas
 airquality[completos,][1:6,]#extrae las primeras 6 filas completas
 
 airquality[1:6,][completos,]
+x <- c(cor(airquality[completos,3],airquality[completos,4]))
+x
 
 #Operaciones vectorizadas
 x <- 1:4; y <- 6:9 #escribir dos operaciones separándolas con ;
