@@ -581,3 +581,111 @@ unclass(as.Date("2016-09-26"))
 
 date()
 as.Pos
+
+lapply
+x <- list(a=1:5,b=rnorm(10000))
+lapply(x,mean)
+
+x <- list(a=1:5,b=rnorm(10), c=rnorm(10,1), d= rnorm(10,2))
+lapply(x,mean)
+
+x <- 1:4
+lapply(x, runif)
+
+?runif
+
+x <- 1:4
+lapply(x, runif, max=15, min=5)
+
+x <- list(a=1:5,b=rnorm(10), c=rnorm(10,1), d= rnorm(10,2))
+sapply(x,mean) #convierte lista en vector
+
+
+x <- 1:4
+sapply(x,ruinf) #error
+
+x <- 1:4
+sapply(x, runif, max=15, min=5)
+
+x <- matrix(rnorm(200),20,10)
+apply(x, 2, mean)
+apply(x, 1, sum)
+
+rowsums=apply(x, 1, sum)
+rowMeans= apply(x, 1, mean)
+colSums=apply(x, 2, sum)
+colMeans=apply(x, 2, mean)
+
+x <- matrix(rnorm(200),20,10)
+apply(x, 1, quantile, probs=c(0.25,0.75))
+
+a <- array(rnorm(2*2*10), c(2,2,10))
+apply(a, c(1,2), mean)
+a
+rowMeans(a, dims=2)
+
+list(rep(1,4), rep(2,3), rep(3,2), rep(4,1))
+mapply(rep, 1:4,4:1)
+
+noise <- function(n, mean, sd){
+    rnorm(n, mean,sd)
+}
+noise(5,1,2)
+noise(1:5,1:5,2)
+
+mapply(noise, 1:5,1:5,2)
+#aplicar de manera vectorizada argumentos de una funcion
+
+x <- c(rnorm(10), runif(10),rnorm(10,1))
+f <- gl(3,10)
+f
+tapply(x, f, mean)
+tapply(x, f, mean,simplify= F)
+
+
+str(split)
+?split
+x <- c(rnorm(10), runif(10),rnorm(10,1))
+f <- gl(3,10)
+f
+split(x,f)
+lapply(split(x,f), mean)
+library(datasets)
+head(airquality)
+
+split(airquality, airquality$Month)
+
+s <- split(airquality, airquality$Month)
+lapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")], na.rm= T)) #funcion anónima
+#todos los elemntos del resultado son tamaño 3, podemos aplicar sapply
+sapply(s, function(x) colMeans(x[,1:4], na.rm = T))
+
+x <- rnorm(10)
+f1 <- gl(2,5)
+
+log(-1) #warning NaNs produced, no detiene el codigo
+
+printmessage <- function(x) {
+       if(x > 0)
+               print("x is greater than zero")
+       else
+              print("x is less than or equal to zero")
+       invisible(x)
+     }
+
+printmessage(1)
+printmessage(NA)
+
+?file.path
+
+mean(x) #Marca error, detiene el proceso
+traceback()     #encuentra dónde se produjo el error
+lm(y~x)
+traceback()
+debug(lm)   
+lm(y~x)
+options(error=recover)
+?Error
+?options
+read.csv("jcjmevkf")
+
