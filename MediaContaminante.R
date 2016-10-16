@@ -31,3 +31,4 @@ mediacontaminante <- function(directorio, contaminante, id = 1:332) {
 }
 
 mediacontaminante("specdata","nitrate",2:4)
+
